@@ -1,8 +1,13 @@
-import { PrimaryGeneratedColumn } from 'typeorm';
+import { Column, PrimaryGeneratedColumn } from "typeorm";
 
 export class Entidade {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  constructor() {}
+  @Column()
+  criadoEm: Date;
+
+  constructor() {
+    this.criadoEm = new Date();
+  }
 }
