@@ -3,7 +3,7 @@ import { PontuacaoRepository } from './ports/pontuacao.repository';
 import { PontuacaoTypeOrmRepository } from '../infrastructure/pontuacaoTypeOrm.repository';
 import { PontuacaoController } from '../presenter/pontuacao.controller';
 
-export const pontoProviders = [
+export const pontuacaoProviders = [
   PontuacaoService,
   {
     provide: PontuacaoRepository,

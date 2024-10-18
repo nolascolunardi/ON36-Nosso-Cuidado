@@ -9,7 +9,7 @@ import { TIPOS_CONSULTA } from '../domain/enum/TipoConsulta.enum';
 import { ConsultaRepository } from './ports/consulta.repository';
 import { Consulta } from '../domain/consulta.entity';
 import { AtualizarConsultaDto } from '../presenter/dto/atualizar-consulta.dto';
-import { PontuacaoService } from '../../ponto/application/pontuacao.service';
+import { PontuacaoService } from '../../pontuacao/application/pontuacao.service';
 import { StatusEnum } from '../../utils/status.enum';
 import { ConsultaDTO } from '../presenter/dto/consulta.dto';
 
@@ -22,8 +22,12 @@ export class ConsultaService {
   ) {}
 
   async criar(criarConsultaDto: CriarConsultaDto): Promise<ConsultaDTO> {
-    const pessoa = await this.pessoaService.buscarPorEmail(criarConsultaDto.pessoaEmail);
-    const pontos = await this.validarTipoConsulta(criarConsultaDto.tipoConsulta);
+    const pessoa = await this.pessoaService.buscarPorEmail(
+      criarConsultaDto.pessoaEmail,
+    );
+    const pontos = await this.validarTipoConsulta(
+      criarConsultaDto.tipoConsulta,
+    );
 
     const novaConsulta = criarConsultaDto.toEntity(pessoa);
     novaConsulta.pontos = pontos;
@@ -39,7 +43,10 @@ export class ConsultaService {
     consulta.status = atualizarDto.status;
     await this.pontosService.contabilizarPontuacao(consulta);
 
-    const consultaAtualizada = await this.consultaRepository.atualizar(id, consulta);
+    const consultaAtualizada = await this.consultaRepository.atualizar(
+      id,
+      consulta,
+    );
     return new ConsultaDTO(consultaAtualizada);
   }
 
@@ -51,9 +58,8 @@ export class ConsultaService {
     return consulta;
   }
 
-  async listarTodas(email: string) {
-    const pessoa = await this.pessoaService.buscarPorEmail(email);
-    return await this.consultaRepository.listarTodas(pessoa.id);
+  async listarTodas(): Promise<Consulta[]> {
+    return await this.consultaRepository.listarTodas();
   }
 
   async validarTipoConsulta(tipoConsulta: string): Promise<number> {
@@ -70,7 +76,10 @@ export class ConsultaService {
         'Consulta já realizada e não pode ser alterada.',
       );
     }
-    if (statusNovo !== StatusEnum.REALIZADA && statusAtual !== StatusEnum.NAO_REALIZADA) {
+    if (
+      statusNovo !== StatusEnum.REALIZADA &&
+      statusAtual !== StatusEnum.NAO_REALIZADA
+    ) {
       throw new BadRequestException('Status é inválido.');
     }
   }

@@ -1,5 +1,5 @@
 import { Entidade } from '../../entidade/entidade';
-import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 import { Pessoa } from '../../pessoa/domain/pessoa.entity';
 
 @Entity('pontuacao')

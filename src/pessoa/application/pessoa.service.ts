@@ -9,8 +9,8 @@ import { CriarPessoaDto } from '../presenter/dto/criar-pessoa.dto';
 import { AtualizarPessoaDto } from '../presenter/dto/atualizar-pessoa.dto';
 import { PessoaRepository } from './ports/pessoa.repository';
 import { EnderecoService } from '../../endereco/application/endereco.service';
-import { PontuacaoService } from '../../ponto/application/pontuacao.service';
-import { PessoaDto } from "../presenter/dto/pessoa.dto";
+import { PontuacaoService } from '../../pontuacao/application/pontuacao.service';
+import { PessoaDto } from '../presenter/dto/pessoa.dto';
 
 @Injectable()
 export class PessoaService {
@@ -25,7 +25,9 @@ export class PessoaService {
     await this.validarCpf(criarPessoaDto.cpf);
     await this.validarEmail(criarPessoaDto.email);
 
-    const endereco = await this.enderecoService.criar(criarPessoaDto.toEnderecoDto());
+    const endereco = await this.enderecoService.criar(
+      criarPessoaDto.toEnderecoDto(),
+    );
     const ponto = await this.pontuacaoService.criarPontuacao();
 
     const novaPessoa = criarPessoaDto.toEntity(endereco, ponto);
@@ -63,9 +65,15 @@ export class PessoaService {
     return pessoas.map((pessoa) => new PessoaDto(pessoa));
   }
 
-  async atualizarInformacoes(email: string, updatePessoaDto: Partial<AtualizarPessoaDto>) {
+  async atualizarInformacoes(
+    email: string,
+    updatePessoaDto: Partial<AtualizarPessoaDto>,
+  ) {
     const pessoa = await this.buscarPorEmail(email);
-    const pessoaAtualizada = await this.pessoaRepository.atualizar(pessoa.id, updatePessoaDto);
+    const pessoaAtualizada = await this.pessoaRepository.atualizar(
+      pessoa.id,
+      updatePessoaDto,
+    );
     return new PessoaDto(pessoaAtualizada);
   }
 

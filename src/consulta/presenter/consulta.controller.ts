@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Put, Patch } from "@nestjs/common";
+import { Controller, Get, Post, Body, Param, Put, Patch } from '@nestjs/common';
 import { ConsultaService } from '../application/consulta.service';
 import { CriarConsultaDto } from './dto/criar-consulta.dto';
 import { AtualizarConsultaDto } from './dto/atualizar-consulta.dto';
@@ -20,9 +20,9 @@ export class ConsultaController {
     return this.consultaService.atualizarStatus(id, atualizarDto);
   }
 
-  @Get('pessoa/:email')
-  listarTodas(@Param('email') email: string) {
-    return this.consultaService.listarTodas(email);
+  @Get('')
+  listarTodas() {
+    return this.consultaService.listarTodas();
   }
 
   @Get('/:id')

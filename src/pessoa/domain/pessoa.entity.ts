@@ -1,9 +1,9 @@
 import { Usuario } from '../../usuario/usuario.entity';
-import { Column, Entity, JoinColumn, OneToMany, OneToOne } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 import { Endereco } from '../../endereco/domain/endereco.entity';
-import { Pontuacao } from '../../ponto/domain/pontuacao.entity';
+import { Pontuacao } from '../../pontuacao/domain/pontuacao.entity';
 import { TipoUsuario } from '../../usuario/enum/tipoUsuario';
-import { Consulta } from "../../consulta/domain/consulta.entity";
+import { Consulta } from '../../consulta/domain/consulta.entity';
 
 //pessoa que gesta <3
 @Entity('pessoa')

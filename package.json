@@ -11,6 +11,8 @@
     "up:dev": "docker-compose up -d",
     "down:dev": "docker-compose down",
     "start": "nest start",
+
+    "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -19,9 +21,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/e2e/jest-e2e.json",
-    "typeorm": "npm run build && npx typeorm -d src/config/database/data-source.ts",
-    "migration:generate": "npm run typeorm -- migration:generate",
-    "migration:run": "npm run typeorm -- migration:run"
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:create": "npm run typeorm -- migration:create ./src/config/database/migrations/tabelas",
+    "migration:run": "npm run typeorm migration:run -- -d ./src/config/database/data-source.ts",
+    "migration:revert": "npm run typeorm migration:revert -- -d ./src/config/database/data-source.ts"
   },
   "dependencies": {
     "@nestjs/bull": "^10.2.1",

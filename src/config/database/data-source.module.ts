@@ -1,6 +1,12 @@
+import 'dotenv/config';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Consulta } from '../../consulta/domain/consulta.entity';
+import { Enfermeira } from '../../enfermeira/domain/enfermeira.entity';
+import { Pontuacao } from '../../pontuacao/domain/pontuacao.entity';
+import { Pessoa } from '../../pessoa/domain/pessoa.entity';
+import { Endereco } from '../../endereco/domain/endereco.entity';
 
 @Module({
   imports: [
@@ -15,7 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [__dirname + '/../**/*.entity.{ts|js}'],
+        entities: [Endereco, Consulta, Enfermeira, Pontuacao, Pessoa],
         autoLoadEntities: true,
         synchronize: true,
         logger: 'debug',

@@ -15,8 +15,8 @@ export class ConsultaTypeOrmRepository extends ConsultaRepository {
     return await this.consultaRepository.save(consulta);
   }
 
-  async listarTodas(id: string): Promise<Consulta[]> {
-    return await this.consultaRepository.find({ where: { pessoa: { id: id } } });
+  async listarTodas(): Promise<Consulta[]> {
+    return await this.consultaRepository.find();
   }
 
   async buscarPorId(id: string): Promise<Consulta> {

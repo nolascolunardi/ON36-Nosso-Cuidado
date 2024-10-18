@@ -16,7 +16,10 @@ export class PessoaTypeOrmRepository extends PessoaRepository {
     return await this.pessoaRepository.save(pessoa);
   }
 
-  async atualizar(id: string, pessoa: Partial<AtualizarPessoaDto>): Promise<Pessoa> {
+  async atualizar(
+    id: string,
+    pessoa: Partial<AtualizarPessoaDto>,
+  ): Promise<Pessoa> {
     await this.pessoaRepository.update({ id }, pessoa);
     return await this.pessoaRepository.findOne({
       where: { id },

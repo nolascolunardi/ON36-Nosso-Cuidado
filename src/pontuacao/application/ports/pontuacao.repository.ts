@@ -1,5 +1,5 @@
 import { Pontuacao } from '../../domain/pontuacao.entity';
-import { UpdateResult } from "typeorm";
+import { UpdateResult } from 'typeorm';
 
 export abstract class PontuacaoRepository {
   abstract salvar(pontuacao: Pontuacao): Promise<Pontuacao>;

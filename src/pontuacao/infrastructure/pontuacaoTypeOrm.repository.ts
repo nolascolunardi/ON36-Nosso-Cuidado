@@ -1,6 +1,6 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { PontuacaoRepository } from '../application/ports/pontuacao.repository';
-import { Repository, UpdateResult } from "typeorm";
+import { Repository, UpdateResult } from 'typeorm';
 import { Pontuacao } from '../domain/pontuacao.entity';
 
 export class PontuacaoTypeOrmRepository extends PontuacaoRepository {

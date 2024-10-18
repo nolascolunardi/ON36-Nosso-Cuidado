@@ -8,7 +8,7 @@ import {
 import { CriarEnderecoDto } from '../../../endereco/presenter/dto/criar-endereco.dto';
 import { Pessoa } from '../../domain/pessoa.entity';
 import { Endereco } from '../../../endereco/domain/endereco.entity';
-import { Pontuacao } from '../../../ponto/domain/pontuacao.entity';
+import { Pontuacao } from '../../../pontuacao/domain/pontuacao.entity';
 
 export class CriarPessoaDto {
   //usuario

@@ -13,8 +13,8 @@ export class Usuario extends Entidade {
   telefone: string;
   @Column({ name: 'is_ativo' })
   isAtivo: boolean;
-  @Column({ name: 'created_at' })
-  createdAt: Date;
+  @Column({ name: 'criado_em' })
+  criadoEm: Date;
 
   constructor(
     tipoUsuario: number,
@@ -30,6 +30,6 @@ export class Usuario extends Entidade {
     this.senha = senha;
     this.telefone = telefone;
     this.isAtivo = true;
-    this.createdAt = new Date();
+    this.criadoEm = new Date();
   }
 }

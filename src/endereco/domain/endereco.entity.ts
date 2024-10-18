@@ -1,6 +1,5 @@
-import { Column, Entity, OneToOne } from 'typeorm';
+import { Column, Entity } from 'typeorm';
 import { Entidade } from '../../entidade/entidade';
-import { Pessoa } from '../../pessoa/domain/pessoa.entity';
 
 @Entity('endereco')
 export class Endereco extends Entidade {
@@ -23,7 +22,6 @@ export class Endereco extends Entidade {
   estado: string;
 
   pais: string;
-
 
   constructor(
     cep: string,

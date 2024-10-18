@@ -4,7 +4,7 @@ import { pessoaProviders } from './pessoaProviders';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pessoa } from '../domain/pessoa.entity';
 import { EnderecoModule } from '../../endereco/application/endereco.module';
-import { PontuacaoModule } from '../../ponto/application/pontuacao.module';
+import { PontuacaoModule } from '../../pontuacao/application/pontuacao.module';
 
 @Module({
   controllers: [PessoaController],

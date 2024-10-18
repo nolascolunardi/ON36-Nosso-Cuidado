@@ -26,14 +26,4 @@ export class EnfermeiraController {
   async findAll(): Promise<Enfermeira[]> {
     return this.enfermeiraService.listarTodos();
   }
-
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.enfermeiraService.(+id);
-  // }
-  //
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.enfermeiraService.remove(+id);
-  // }
 }

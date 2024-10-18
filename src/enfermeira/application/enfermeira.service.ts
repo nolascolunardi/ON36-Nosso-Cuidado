@@ -1,4 +1,8 @@
-import { ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
+import {
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CriarEnfermeiraDto } from '../presenter/dto/criar-enfermeira.dto';
 import { Enfermeira } from '../domain/enfermeira.entity';
 import { EnfermeiraRepository } from './ports/enfermeira.repository';
@@ -37,5 +41,4 @@ export class EnfermeiraService {
     }
     return enfermeiras;
   }
-
 }

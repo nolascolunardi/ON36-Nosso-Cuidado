@@ -1,10 +1,14 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { EnderecoService } from "../../../src/endereco/application/endereco.service";
-import { ValidadorCep } from "../../../src/endereco/application/ports/validadorCep";
-import { EnderecoRepository } from "../../../src/endereco/infrastructure/typeORM/endereco.repository";
-import { mockEndereco, mockEnderecoDto, mockEnderecoInvalidoDto } from "../../__mocks__/endereco.mock";
-import { CriarEnderecoDto } from "../../../src/endereco/presenter/dto/criar-endereco.dto";
-import { Endereco } from "../../../src/endereco/domain/endereco.entity";
+import { Test, TestingModule } from '@nestjs/testing';
+import { EnderecoService } from '../../../src/endereco/application/endereco.service';
+import { ValidadorCep } from '../../../src/endereco/application/ports/validadorCep';
+import { EnderecoRepository } from '../../../src/endereco/infrastructure/typeORM/endereco.repository';
+import {
+  mockEndereco,
+  mockEnderecoDto,
+  mockEnderecoInvalidoDto,
+} from '../../__mocks__/endereco.mock';
+import { CriarEnderecoDto } from '../../../src/endereco/presenter/dto/criar-endereco.dto';
+import { Endereco } from '../../../src/endereco/domain/endereco.entity';
 
 let service: EnderecoService;
 let repository: EnderecoRepository;
@@ -19,7 +23,7 @@ beforeEach(async () => {
         useValue: {
           salvar: jest.fn(),
           deletar: jest.fn(),
-          listarTodos: jest.fn(), 
+          listarTodos: jest.fn(),
           atualizar: jest.fn(),
         },
       },
@@ -50,12 +54,14 @@ describe('EnderecoService', () => {
     it('deve lançar uma exceção se o CEP for inválido para criar novo endereco', async () => {
       jest.spyOn(service, 'validarCep').mockResolvedValue(false);
 
-      await expect(service.criar(mockEnderecoInvalidoDto)).rejects.toThrowError('CEP inválido');
+      await expect(service.criar(mockEnderecoInvalidoDto)).rejects.toThrowError(
+        'CEP inválido',
+      );
     });
   });
-  describe('validarCep', ()=> {
+  describe('validarCep', () => {
     it('deve validar um Cep válido', async () => {
-      jest.spyOn(validador, 'validar').mockResolvedValue(true)
+      jest.spyOn(validador, 'validar').mockResolvedValue(true);
 
       const result = await service.validarCep(mockEndereco);
 
@@ -72,7 +78,9 @@ describe('EnderecoService', () => {
         'Narnia',
       );
 
-      await expect(service.validarCep(enderecoInvalido)).rejects.toThrowError('Endereço fora do Brasil');
+      await expect(service.validarCep(enderecoInvalido)).rejects.toThrowError(
+        'Endereço fora do Brasil',
+      );
     });
   });
 });
