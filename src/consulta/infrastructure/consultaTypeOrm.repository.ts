@@ -33,6 +33,12 @@ export class ConsultaTypeOrmRepository extends ConsultaRepository {
     });
   }
 
+  async listarTodosPorPessoa(pessoaEmail: string): Promise<Consulta[]> {
+    return await this.consultaRepository.find({
+      where: { pessoa: { email: pessoaEmail } },
+    });
+  }
+
   async deletar(id: string): Promise<void> {
     await this.consultaRepository.delete(id);
   }

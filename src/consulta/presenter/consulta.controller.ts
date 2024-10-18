@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Param, Put, Patch } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Patch,
+  Delete,
+} from '@nestjs/common';
 import { ConsultaService } from '../application/consulta.service';
 import { CriarConsultaDto } from './dto/criar-consulta.dto';
 import { AtualizarConsultaDto } from './dto/atualizar-consulta.dto';
@@ -25,8 +33,18 @@ export class ConsultaController {
     return this.consultaService.listarTodas();
   }
 
+  @Get('/pessoa/:email')
+  listarTodosPorEmail(@Param('email') email: string) {
+    return this.consultaService.listarTodasPorEmail(email);
+  }
+
   @Get('/:id')
   buscarPorId(@Param('id') id: string) {
     return this.consultaService.buscarPorId(id);
+  }
+
+  @Delete('/:id')
+  deletar(@Param('id') id: string) {
+    return this.consultaService.deletar(id);
   }
 }

@@ -12,7 +12,7 @@ export class ConsultaDTO {
     this.consultaId = entity.id;
     this.data = entity.dataConsulta;
     this.hora = entity.horaConsulta;
-    this.pessoa = entity.pessoa.id;
+    this.pessoa = entity.pessoa.nomeCompleto;
     this.status = entity.status;
     this.tipo = entity.tipoConsulta;
   }

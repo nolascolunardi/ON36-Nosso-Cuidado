@@ -62,6 +62,10 @@ export class ConsultaService {
     return await this.consultaRepository.listarTodas();
   }
 
+  async listarTodasPorEmail(pessoaId: string): Promise<Consulta[]> {
+    return await this.consultaRepository.listarTodosPorPessoa(pessoaId);
+  }
+
   async validarTipoConsulta(tipoConsulta: string): Promise<number> {
     const tipoConsultaEncontrado = TIPOS_CONSULTA[tipoConsulta];
     if (!tipoConsultaEncontrado) {
@@ -82,5 +86,17 @@ export class ConsultaService {
     ) {
       throw new BadRequestException('Status é inválido.');
     }
+  }
+
+  async deletar(id: string): Promise<void> {
+    const consulta = await this.buscarPorId(id);
+
+    if (consulta.status === StatusEnum.REALIZADA) {
+      throw new BadRequestException(
+        'Consulta já realizada e não pode ser deletada.',
+      );
+    }
+
+    await this.consultaRepository.deletar(id);
   }
 }
