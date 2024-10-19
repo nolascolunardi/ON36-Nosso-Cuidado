@@ -25,7 +25,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://3.95.85.206/enfermeiras",
+							"raw": "http://3.95.85.206:3000/enfermeiras",
 							"protocol": "http",
 							"host": [
 								"3",
@@ -55,7 +55,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://3.95.85.206/enfermeiras",
+							"raw": "http://3.95.85.206:3000/enfermeiras",
 							"protocol": "http",
 							"host": [
 								"3",
@@ -85,7 +85,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://3.95.85.206/enfermeiras",
+							"raw": "http://3.95.85.206:3000/enfermeiras",
 							"protocol": "http",
 							"host": [
 								"3",
