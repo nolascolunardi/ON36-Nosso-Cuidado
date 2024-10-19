@@ -1,13 +1,13 @@
 import { Pontuacao } from '../../domain/pontuacao.entity';
 
 export class PontuacaoDto {
-  pessoaNome: string;
-  totalPontos: number;
-  atualizadoEm: Date;
+  pessoa_nome: string;
+  total_pontos: number;
+  atualizado_em: Date;
 
   constructor(pontuacao: Pontuacao) {
-    this.pessoaNome = pontuacao.pessoa.nomeCompleto;
-    this.totalPontos = pontuacao.pontos;
-    this.atualizadoEm = pontuacao.atualizadoEm;
+    this.pessoa_nome = pontuacao.pessoa.nomeCompleto;
+    this.total_pontos = pontuacao.pontos;
+    this.atualizado_em = pontuacao.atualizadoEm;
   }
 }

@@ -38,14 +38,14 @@ export class PessoaService {
   async validarCpf(cpf: string) {
     const pessoa = await this.pessoaRepository.buscarPorCpf(cpf);
     if (pessoa) {
-      throw new ForbiddenException('CPF já cadastrado');
+      throw new ForbiddenException('CPF invalido');
     }
   }
 
   async validarEmail(email: string) {
     const pessoa = await this.pessoaRepository.buscarPorEmail(email);
     if (pessoa) {
-      throw new ForbiddenException('E-mail já cadastrado');
+      throw new ForbiddenException('E-mail invalido');
     }
   }
 

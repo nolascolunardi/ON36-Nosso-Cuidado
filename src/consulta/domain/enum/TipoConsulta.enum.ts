@@ -5,16 +5,16 @@ const PRE_NATAL = {
 
 const PEDIATRIA = {
   descricao: 'Pediatria',
-  pontuacao: 5,
+  pontuacao: 10,
 };
 
 const GINECOLOGIA = {
   descricao: 'Ginecologia',
-  pontuacao: 5,
+  pontuacao: 15,
 };
 
 export const TIPOS_CONSULTA = {
-  PRE_NATAL,
+  [PRE_NATAL.descricao]: PRE_NATAL,
   [PEDIATRIA.descricao]: PEDIATRIA,
-  'Pre-natal': GINECOLOGIA,
+  [GINECOLOGIA.descricao]: GINECOLOGIA,
 };

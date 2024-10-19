@@ -3,21 +3,21 @@ import { Pessoa } from '../../domain/pessoa.entity';
 export class PessoaDto {
   nome: string;
   email: string;
-  dataNascimento: Date;
+  data_nascimento: Date;
   telefone: string;
-  semanasGestacao: number;
-  medicoResponsavel: string;
+  semanas_gestacao: number;
+  medico_responsavel: string;
   endereco: string;
-  totalPontos: number;
+  total_pontos: number;
 
   constructor(pessoa: Pessoa) {
     this.nome = pessoa.nomeCompleto;
     this.email = pessoa.email;
-    this.dataNascimento = pessoa.dataNascimento;
+    this.data_nascimento = pessoa.dataNascimento;
     this.telefone = pessoa.telefone;
-    this.semanasGestacao = pessoa.semanasGestacao;
-    this.medicoResponsavel = pessoa.medicoResponsavel;
+    this.semanas_gestacao = pessoa.semanasGestacao;
+    this.medico_responsavel = pessoa.medicoResponsavel;
     this.endereco = pessoa.endereco.logradouro;
-    this.totalPontos = pessoa.pontuacao.pontos;
+    this.total_pontos = pessoa.pontuacao.pontos;
   }
 }

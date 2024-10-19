@@ -16,7 +16,7 @@ export class ConsultaTypeOrmRepository extends ConsultaRepository {
   }
 
   async listarTodas(): Promise<Consulta[]> {
-    return await this.consultaRepository.find();
+    return await this.consultaRepository.find({ relations: ['pessoa'] });
   }
 
   async buscarPorId(id: string): Promise<Consulta> {
@@ -30,12 +30,14 @@ export class ConsultaTypeOrmRepository extends ConsultaRepository {
     await this.consultaRepository.update(id, consulta);
     return await this.consultaRepository.findOne({
       where: { id },
+      relations: ['pessoa'],
     });
   }
 
   async listarTodosPorPessoa(pessoaEmail: string): Promise<Consulta[]> {
     return await this.consultaRepository.find({
       where: { pessoa: { email: pessoaEmail } },
+      relations: ['pessoa'],
     });
   }
 

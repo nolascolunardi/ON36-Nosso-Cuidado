@@ -32,7 +32,6 @@ export class ConsultaService {
     const novaConsulta = criarConsultaDto.toEntity(pessoa);
     novaConsulta.pontos = pontos;
     const consulta = await this.consultaRepository.salvar(novaConsulta);
-
     return new ConsultaDTO(consulta);
   }
 
@@ -58,12 +57,21 @@ export class ConsultaService {
     return consulta;
   }
 
-  async listarTodas(): Promise<Consulta[]> {
-    return await this.consultaRepository.listarTodas();
+  async listarTodas(): Promise<ConsultaDTO[]> {
+    const consultas = await this.consultaRepository.listarTodas();
+    if (!consultas) {
+      throw new NotFoundException('Nenhuma consulta encontrada');
+    }
+    return consultas.map((consulta) => new ConsultaDTO(consulta));
   }
 
-  async listarTodasPorEmail(pessoaId: string): Promise<Consulta[]> {
-    return await this.consultaRepository.listarTodosPorPessoa(pessoaId);
+  async listarTodasPorEmail(pessoaId: string): Promise<ConsultaDTO[]> {
+    const consultas =
+      await this.consultaRepository.listarTodosPorPessoa(pessoaId);
+    if (!consultas) {
+      throw new NotFoundException('Nenhuma consulta encontrada');
+    }
+    return consultas.map((consulta) => new ConsultaDTO(consulta));
   }
 
   async validarTipoConsulta(tipoConsulta: string): Promise<number> {
