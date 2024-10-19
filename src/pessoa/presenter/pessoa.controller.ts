@@ -41,7 +41,8 @@ export class PessoaController {
   }
 
   @Delete(':email')
-  remove(@Param('email') email: string) {
-    return this.pessoaService.deletar(email);
+  async remove(@Param('email') email: string): Promise<string> {
+    await this.pessoaService.deletar(email);
+    return 'Pessoa deletada com sucesso';
   }
 }
