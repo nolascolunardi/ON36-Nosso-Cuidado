@@ -8,6 +8,7 @@ import { ConsultaModule } from './consulta/application/consulta.module';
 import { DbModule } from './config/database/data-source.module';
 import { PontuacaoModule } from './pontuacao/application/pontuacao.module';
 import { PessoaModule } from './pessoa/application/pessoa.module';
+import { AppController } from "./app.controller";
 
 @Module({
   imports: [
@@ -23,5 +24,6 @@ import { PessoaModule } from './pessoa/application/pessoa.module';
     ConsultaModule,
     DbModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
