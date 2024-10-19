@@ -6,18 +6,20 @@ import {
 import { CriarEnfermeiraDto } from '../presenter/dto/criar-enfermeira.dto';
 import { Enfermeira } from '../domain/enfermeira.entity';
 import { EnfermeiraRepository } from './ports/enfermeira.repository';
+import { EnfermeiraDto } from '../presenter/dto/enfermeira.dto';
 
 @Injectable()
 export class EnfermeiraService {
   constructor(private readonly enfermeiraRepository: EnfermeiraRepository) {}
 
-  async criar(criarEnfermeiraDto: CriarEnfermeiraDto): Promise<Enfermeira> {
+  async criar(criarEnfermeiraDto: CriarEnfermeiraDto): Promise<EnfermeiraDto> {
     await this.validarCpf(criarEnfermeiraDto.cpf);
     await this.validarEmail(criarEnfermeiraDto.email);
 
-    const enfermeira = criarEnfermeiraDto.toEntity();
+    const novaEnfermeira = criarEnfermeiraDto.toEntity();
 
-    return await this.enfermeiraRepository.salvar(enfermeira);
+    const enfermeira = await this.enfermeiraRepository.salvar(novaEnfermeira);
+    return new EnfermeiraDto(enfermeira);
   }
 
   async validarCpf(cpf: string): Promise<void> {
@@ -34,11 +36,11 @@ export class EnfermeiraService {
       throw new ForbiddenException('Email inválido');
     }
   }
-  async listarTodos(): Promise<Enfermeira[]> {
+  async listarTodos(): Promise<EnfermeiraDto[]> {
     const enfermeiras = await this.enfermeiraRepository.listarTodos();
     if (!enfermeiras || enfermeiras.length === 0) {
       throw new NotFoundException('Nenhuma enfermeira encontrada');
     }
-    return enfermeiras;
+    return enfermeiras.map((enfermeira) => new EnfermeiraDto(enfermeira));
   }
 }
