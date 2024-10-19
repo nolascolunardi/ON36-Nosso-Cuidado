@@ -34,8 +34,8 @@ export class PessoaTypeOrmRepository extends PessoaRepository {
     });
   }
 
-  async deletar(cpf: string): Promise<void> {
-    await this.pessoaRepository.update({ cpf }, { isAtivo: false });
+  async deletar(email: string): Promise<void> {
+    await this.pessoaRepository.update({ email }, { isAtivo: false });
   }
 
   async buscarPorCpf(cpf: string): Promise<Pessoa> {
