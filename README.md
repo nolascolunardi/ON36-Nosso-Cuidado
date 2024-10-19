@@ -67,40 +67,6 @@ Para rodar o projeto localmente:
     npm run start:dev
 A aplicação estará disponível em `http://localhost:3000`.
 
-## ✅  Rotas da API
-
-A API possui as seguintes rotas:
-- ### Enfermeiras
-   `` POST /enfermeiras ``: Cria uma nova enfermeira.
-   
-   `` GET /enfermeiras ``: Retorna todas as enfermeiras cadastradas.
-   
-   `` GET /enfermeiras/:id ``: Retorna uma enfermeira específica.
-   
-   `` PUT /enfermeiras/:id ``: Atualiza os dados de uma enfermeira.
-- ### Pessoa Gestante
-   `` POST /pessoasGestantes ``: Cria uma nova pessoa gestante.
-   
-   `` GET /pessoasGestantes ``: Retorna todas as pessoas gestantes cadastradas.
-   
-   `` GET /pessoasGestantes/:id ``: Retorna uma pessoa gestante específica.
-   
-   `` PUT /pessoasGestantes/:id ``: Atualiza os dados de uma pessoa gestante.
-   
-   `` GET /pontuacao/:id ``: Retorna a pontuação de uma pessoa gestante.``
-- ### Consultas
-   `` POST /consultas ``: Cria uma nova consulta.
-   
-   `` GET /consultas ``: Retorna todas as consultas cadastradas.
-   
-   `` GET /consultas/:id ``: Retorna uma consulta específica.
-   
-   `` PUT /consultas/:id ``: Atualiza o status de uma consulta.
-- ### Endereços
-   `` GET /enderecos/:cep ``: Retorna o endereço correspondente ao CEP informado.
-- ### Pontuação
-   `` GET /pontuacao/:id ``: Retorna a pontuação de uma pessoa gestante.
-
 ## 🔮 Futuras Implementações
 - **Autenticação**: Implementar autenticação para garantir a segurança das rotas.
 - **Crud de Empresas Parceiras**: Permitir o cadastro de empresas parceiras que oferecem descontos.

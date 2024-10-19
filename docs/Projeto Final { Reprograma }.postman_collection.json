@@ -1,0 +1,623 @@
+{
+	"info": {
+		"_postman_id": "f1734bc7-f30d-4b3b-ad2f-89b7b0ca9889",
+		"name": "Projeto Final { Reprograma }",
+		"description": "Coleção de Requests para a API e suas funcionalidades oferecidas.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37120988"
+	},
+	"item": [
+		{
+			"name": "Enfermeira",
+			"item": [
+				{
+					"name": "Criar Enfermeira - Já Cadastrada na API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeCompleto\": \"Maria Clara Souza\",\r\n  \"email\": \"maria.clara@ex.com\",\r\n  \"senha\": \"senhaSegura123\",\r\n  \"telefone\": \"11987654321\",\r\n  \"coren\": \"123456\",\r\n  \"cpf\": \"12345678901\",\r\n  \"unidadeDeAtendimento\": \"Hospital São Lucas\",\r\n  \"descricao\": \"Enfermeira com 5 anos de experiência em atendimento clínico.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206/enfermeiras",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"path": [
+								"enfermeiras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Enfermeira - Sucesso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeCompleto\": \"Ana Beatriz Lima\",\r\n  \"email\": \"ana.lima@exemplo.com\",\r\n  \"senha\": \"senhaSuperSegura789\",\r\n  \"telefone\": \"31987651234\",\r\n  \"coren\": \"789123\",\r\n  \"cpf\": \"32165498709\",\r\n  \"unidadeDeAtendimento\": \"Hospital Central\",\r\n  \"descricao\": \"Enfermeira chefe com 10 anos de experiência em gestão de equipes.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206/enfermeiras",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"path": [
+								"enfermeiras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Enfermeira - Sucesso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeCompleto\": \"Luiza Santos\",\r\n  \"email\": \"luiza.santos@exemplo.com\",\r\n  \"senha\": \"senha123forte\",\r\n  \"telefone\": \"51987765432\",\r\n  \"coren\": \"321654\",\r\n  \"cpf\": \"55667788990\",\r\n  \"unidadeDeAtendimento\": \"Hospital Municipal\",\r\n  \"descricao\": \"Enfermeira com 8 anos de experiência em cuidados intensivos.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206/enfermeiras",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"path": [
+								"enfermeiras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todas Enfermeiras - Sucesso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/enfermeiras",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"enfermeiras"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Ator que se referencia a todas as pessoas que excercem a profissão de enfermagem."
+		},
+		{
+			"name": "Pessoa Gestante",
+			"item": [
+				{
+					"name": "Criar Pessoa - Já cadastrada na API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Joana da Silva\",\r\n  \"email\": \"joana.silva@example.com\",\r\n  \"senha\": \"senhaSegura123\",\r\n  \"telefone\": \"11999999999\",\r\n  \r\n  \"cpf\": \"12345678901\",\r\n  \"dataNascimento\": \"1985-07-15\",\r\n  \"semanasGestacao\": 30,\r\n  \"medicoResponsavel\": \"Dr. Pietra\",\r\n  \r\n  \"cep\": \"08738010\",\r\n  \"logradouro\": \"Rua Dr. Fábio Zogbi\",\r\n  \"numero\": \"123\",\r\n  \"bairro\": \"Centro\",\r\n  \"cidade\": \"Mogi das Cruzes\",\r\n  \"estado\": \"São Paulo\",\r\n  \"pais\": \"Brasil\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206:3000/pessoas",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Pessoa - Erro Cep",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Julia Maria\",\r\n  \"email\": \"julia.maria@ex.com\",\r\n  \"senha\": \"senhaSegura123\",\r\n  \"telefone\": \"11999999999\",\r\n  \r\n  \"cpf\": \"12345678444\",\r\n  \"dataNascimento\": \"1985-07-15\",\r\n  \"semanasGestacao\": 30,\r\n  \"medicoResponsavel\": \"Dr. Pietra\",\r\n  \r\n  \"cep\": \"12345678\",\r\n  \"logradouro\": \"Rua Dr. Fábio Zogbi\",\r\n  \"numero\": \"123\",\r\n  \"bairro\": \"Centro\",\r\n  \"cidade\": \"Mogi das Cruzes\",\r\n  \"estado\": \"São Paulo\",\r\n  \"pais\": \"Brasil\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206:3000/pessoas",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Pessoa - Sucesso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Mariana Pereira\",\r\n  \"email\": \"mariana.pereira@example.com\",\r\n  \"senha\": \"senhaSegura789\",\r\n  \"telefone\": \"31998877654\",\r\n\r\n  \"cpf\": \"32165498709\",\r\n  \"dataNascimento\": \"1987-12-10\",\r\n  \"semanasGestacao\": 28,\r\n  \"medicoResponsavel\": \"Dr. Clara Souza\",\r\n\r\n  \"cep\": \"30140130\",\r\n  \"logradouro\": \"Rua Rio Grande do Norte\",\r\n  \"numero\": \"789\",\r\n  \"bairro\": \"Savassi\",\r\n  \"cidade\": \"Belo Horizonte\",\r\n  \"estado\": \"Minas Gerais\",\r\n  \"pais\": \"Brasil\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206:3000/pessoas",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todas Pessoas - Sucesso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/pessoas",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar  por email- Sucesso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/pessoas/joana.silva@example.com",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								"joana.silva@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por email - Erro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/pessoas/joana@example.com",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								"joana@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Informações - Sucesso",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeCompleto\": \"Joana Maria da Silva\",\r\n    \"telefone\": \"11988888888\",\r\n    \"semanasGestacao\": 32\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206:3000/pessoas/atualizar/joana.silva@example.com",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								"atualizar",
+								"joana.silva@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Informações - Erro",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"telefone\": \"11984848845\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206:3000/pessoas/atualizar/joana@example.com",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								"atualizar",
+								"joana@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Pessoa - Sucesso",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/pessoas/joana.silva@example.com",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								"joana.silva@example.com"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Ator que se referencia a todas as pessoas que gestam."
+		},
+		{
+			"name": "Pontuação",
+			"item": [
+				{
+					"name": "Listar Pontos de Uma Pessoa  - Sucesso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/pontuacao/joana.silva@example.com",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"pontuacao",
+								"joana.silva@example.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consultas",
+			"item": [
+				{
+					"name": "Criar Consulta - Sucesso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipoConsulta\": \"Pediatria\",\r\n  \"dataConsulta\": \"2024-10-15\",\r\n  \"horaConsulta\": \"14:00\",\r\n  \"pessoaEmail\": \"joana.silva@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206:3000/consultas",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"consultas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Consulta 2  - Sucesso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipoConsulta\": \"Pre-natal\",\r\n  \"dataConsulta\": \"2024-05-15\",\r\n  \"horaConsulta\": \"11:00\",\r\n  \"pessoaEmail\": \"joana.silva@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206:3000/consultas",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"consultas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todas Consultas  - Sucesso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/consultas",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"consultas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todas Consultas de Uma Pessoa - Sucesso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/consultas/pessoa/joana.silva@example.com",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"consultas",
+								"pessoa",
+								"joana.silva@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Consulta por IdConsulta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/consultas/7d397421-f856-4ee7-9736-9e232e4c5a4e",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"consultas",
+								"7d397421-f856-4ee7-9736-9e232e4c5a4e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Consulta Pelo Id - Sucesso",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Realizada\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.95.85.206:3000/consultas/b17d62c2-813d-44a5-bbb9-922eeb5d4e11",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"consultas",
+								"b17d62c2-813d-44a5-bbb9-922eeb5d4e11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Consulta - Sucesso",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://3.95.85.206:3000/consultas/dd2bac86-bec1-4b55-9083-0745cd8b143e",
+							"protocol": "http",
+							"host": [
+								"3",
+								"95",
+								"85",
+								"206"
+							],
+							"port": "3000",
+							"path": [
+								"consultas",
+								"dd2bac86-bec1-4b55-9083-0745cd8b143e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home da Pagina",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.95.85.206:3000",
+					"protocol": "http",
+					"host": [
+						"3",
+						"95",
+						"85",
+						"206"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		}
+	]
+}
