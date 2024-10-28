@@ -22,8 +22,7 @@ export class PessoaService {
   ) {}
 
   async criar(criarPessoaDto: CriarPessoaDto): Promise<PessoaDto> {
-    await this.validarCpf(criarPessoaDto.cpf);
-    await this.validarEmail(criarPessoaDto.email);
+    await this.validarCPFeEmail(criarPessoaDto.cpf, criarPessoaDto.email);
 
     const endereco = await this.enderecoService.criar(
       criarPessoaDto.toEnderecoDto(),
@@ -35,24 +34,18 @@ export class PessoaService {
     return new PessoaDto(pessoa);
   }
 
-  async validarCpf(cpf: string) {
-    const pessoa = await this.pessoaRepository.buscarPorCpf(cpf);
-    if (pessoa) {
-      throw new ForbiddenException('CPF invalido');
-    }
-  }
-
-  async validarEmail(email: string) {
-    const pessoa = await this.pessoaRepository.buscarPorEmail(email);
-    if (pessoa) {
-      throw new ForbiddenException('E-mail invalido');
+  async validarCPFeEmail(cpf: string, email: string) {
+    const existeCpf = await this.pessoaRepository.buscarPorCpf(cpf);
+    const existeEmail = await this.pessoaRepository.buscarPorEmail(email);
+    if (existeCpf || existeEmail) {
+      throw new ForbiddenException('E-mail ou senha invalido');
     }
   }
 
   async buscarPorEmail(email: string) {
     const pessoa = await this.pessoaRepository.buscarPorEmail(email);
     if (!pessoa) {
-      throw new NotFoundException('Mãe não encontrada');
+      throw new NotFoundException('Pessoa Gestante não encontrada');
     }
     return pessoa;
   }
@@ -60,7 +53,7 @@ export class PessoaService {
   async listarTodos(): Promise<PessoaDto[]> {
     const pessoas = await this.pessoaRepository.listarTodas();
     if (!pessoas || pessoas.length === 0) {
-      throw new NotFoundException('Nenhuma mãe encontrada');
+      throw new NotFoundException('Nenhuma pessoa gestante encontrada');
     }
     return pessoas.map((pessoa) => new PessoaDto(pessoa));
   }
@@ -80,7 +73,7 @@ export class PessoaService {
   async deletar(email: string) {
     const pessoa = await this.pessoaRepository.buscarPorEmail(email);
     if (!pessoa) {
-      throw new NotFoundException('Mãe não encontrada');
+      throw new NotFoundException('Pessoa Gestante não encontrada');
     }
     await this.pessoaRepository.deletar(pessoa.email);
   }

@@ -12,7 +12,7 @@ import { AtualizarConsultaDto } from '../presenter/dto/atualizar-consulta.dto';
 import { PontuacaoService } from '../../pontuacao/application/pontuacao.service';
 import { StatusEnum } from '../../utils/status.enum';
 import { ConsultaDTO } from '../presenter/dto/consulta.dto';
-
+//socorro deus
 @Injectable()
 export class ConsultaService {
   constructor(
@@ -92,7 +92,7 @@ export class ConsultaService {
       statusNovo !== StatusEnum.REALIZADA &&
       statusAtual !== StatusEnum.NAO_REALIZADA
     ) {
-      throw new BadRequestException('Status é inválido.');
+      throw new BadRequestException('Status inválido para atualização');
     }
   }
 
