@@ -1,13 +1,22 @@
 import { Pessoa } from '../../domain/pessoa.entity';
+import { ApiProperty } from "@nestjs/swagger";
 
 export class PessoaDto {
+  @ApiProperty()
   nome: string;
+  @ApiProperty()
   email: string;
+  @ApiProperty()
   data_nascimento: Date;
+  @ApiProperty()
   telefone: string;
+  @ApiProperty()
   semanas_gestacao: number;
+  @ApiProperty()
   medico_responsavel: string;
+  @ApiProperty()
   endereco: string;
+  @ApiProperty()
   total_pontos: number;
 
   constructor(pessoa: Pessoa) {
