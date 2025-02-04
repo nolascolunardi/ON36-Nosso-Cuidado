@@ -8,3 +8,10 @@ export const pontuacaoEntidade={
   atualizadoEm: new Date('2024-09-01'),
   pessoa: pessoaEntidade
 } as unknown as Pontuacao;
+
+export const pontuacaoEntidadeAtualizada={
+  id: "1",
+  pontos: 10,
+  atualizadoEm: new Date('2024-09-01'),
+  pessoa: pessoaEntidade
+} as unknown as Pontuacao;
